@@ -131,7 +131,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 > **Anam Maulana**  
 > Spring Boot learner & backend enthusiast 🚀  
-> [GitHub](https://github.com/anammaulana) | [LinkedIn](https://linkedin.com/in/anammaulana)
+> [GitHub](https://github.com/anammaulana) | [LinkedIn](https://www.linkedin.com/in/anam-maulana-068184306/)
 
 ---
 
