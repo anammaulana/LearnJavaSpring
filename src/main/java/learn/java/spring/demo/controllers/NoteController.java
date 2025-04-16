@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
+import learn.java.spring.demo.handlers.BadRequestException;
 import learn.java.spring.demo.handlers.NotFoundException;
 import learn.java.spring.demo.models.Note;
 import learn.java.spring.demo.requests.NoteRequest;
@@ -36,25 +37,35 @@ public class NoteController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse<Note>> updateNote(@PathVariable Long id, @Valid @RequestBody NoteRequest updatedNote) {
+        Note updateNote = noteService.updateNote(id, updatedNote);
+        ApiResponse<Note> response = new ApiResponse<>(true, "Catatan berhasil di-update", updateNote);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+    
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse<List<Note>>> getAllNotes() {
         List<Note> notes = noteService.getAllNotes();
+        if(notes.isEmpty()){
+            throw new NotFoundException("Data Tidak di Temukan");
+        }
         ApiResponse<List<Note>> response = new ApiResponse<>(true, "Semua data berhasil diambil", notes);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<Note>> getNoteById(@PathVariable Long id) {
+        if (id <= 0){
+            throw new BadRequestException("jangan nol");
+        }
         Note note = noteService.getNoteById(id)
                 .orElseThrow(() -> new NotFoundException("Note dengan ID " + id + " tidak ditemukan"));
         ApiResponse<Note> response = new ApiResponse<>(true, "Data ditemukan", note);
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Note> updateNote(@PathVariable Long id, @RequestBody Note updatedNote) {
-        return ResponseEntity.ok(noteService.updateNote(id, updatedNote));
-    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteNote(@PathVariable Long id) {

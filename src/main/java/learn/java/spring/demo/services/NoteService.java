@@ -10,6 +10,6 @@ public interface NoteService {
     Note createNote(NoteRequest request);
     List<Note> getAllNotes();
     Optional<Note> getNoteById(Long id);
-    Note updateNote(Long id, Note updatedNote);
+    Note updateNote(Long id, NoteRequest request);
     void deleteNote(Long id);
 }
