@@ -68,8 +68,10 @@ public class NoteController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteNote(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<String>> deleteNote(@PathVariable Long id) {
         noteService.deleteNote(id);
-        return ResponseEntity.noContent().build();
+        ApiResponse<String> response = new ApiResponse<>(true, "Catatan berhasil dihapus", null);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
+    
 }

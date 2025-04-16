@@ -52,6 +52,9 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public void deleteNote(Long id) {
-        noteRepository.deleteById(id);
+        Note note = noteRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Note dengan id " + id + " tidak ditemukan"));
+    
+        noteRepository.delete(note);
     }
 }
