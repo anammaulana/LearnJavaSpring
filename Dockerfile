@@ -1,13 +1,12 @@
-# FROM eclipse-temurin:21-jdk-alpine
-
-# WORKDIR /app
-# COPY target/*.jar app.jar
-# ENTRYPOINT ["java", "-jar", "app.jar"]
-
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY target/demo-0.0.1-SNAPSHOT.jar /app/demo-0.0.1-SNAPSHOT.jar
-CMD ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
+
+# FROM openjdk:21-jdk-slim
+# WORKDIR /app
+# COPY target/demo-0.0.1-SNAPSHOT.jar /app/demo-0.0.1-SNAPSHOT.jar
+# CMD ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
 
 
 
