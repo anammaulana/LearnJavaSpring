@@ -137,8 +137,12 @@ spring.jpa.hibernate.ddl-auto=update
 
 ## ⚡ License
 
-MIT License – bebas digunakan untuk belajar dan pengembangan.
+MIT License 
 
-```
 
-Kalau kamu udah punya repo GitHub, aku bisa bantuin upload via panduan Git atau kasih commit message yang cocok. Mau? 😄
+![Java](https://img.shields.io/badge/Java-17-blue.svg)
+![SpringBoot](https://img.shields.io/badge/Spring%20Boot-3.1-green.svg)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Active-blue)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
