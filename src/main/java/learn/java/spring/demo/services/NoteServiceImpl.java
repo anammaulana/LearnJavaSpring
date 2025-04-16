@@ -24,6 +24,7 @@ public class NoteServiceImpl implements NoteService {
         Note note = new Note();
         note.setTitle(request.getTitle());
         note.setContent(request.getContent());
+        note.setAuthor(request.getAuthor());
         note.setCreatedAt(LocalDateTime.now());
         return noteRepository.save(note);
     }

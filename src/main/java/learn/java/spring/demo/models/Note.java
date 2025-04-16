@@ -20,6 +20,7 @@ public class Note {
 
     private String title;
     private String content;
+    private String author;
 
     private LocalDateTime createdAt = LocalDateTime.now();
 }

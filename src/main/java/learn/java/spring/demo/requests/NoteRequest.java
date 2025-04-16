@@ -10,6 +10,9 @@ public class NoteRequest {
     @NotBlank(message = "Konten tidak boleh kosong")
     private String content;
 
+    @NotBlank(message = "Author tidak boleh kosong")
+    private String author;
+
     // Getter & Setter
     public String getTitle() {
         return title;
@@ -25,5 +28,12 @@ public class NoteRequest {
 
     public void setContent(String content) {
         this.content = content;
+    }
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
