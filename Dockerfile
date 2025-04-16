@@ -1,10 +1,5 @@
-# Sebelumnya mungkin begini:
-# FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:21-jdk-alpine
 
-# Ganti jadi:
-    FROM eclipse-temurin:21-jdk-alpine
-
-    WORKDIR /app
-    COPY target/*.jar app.jar
-    ENTRYPOINT ["java", "-jar", "app.jar"]
-    
+WORKDIR /app
+COPY target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
