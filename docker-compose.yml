@@ -13,6 +13,7 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   app:
+    image: openjdk:21-jdk-slim 
     build: .
     container_name: spring_notes_app
     ports:
